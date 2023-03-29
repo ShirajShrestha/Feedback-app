@@ -19,6 +19,7 @@ export const FeedbackProvider = ({ children }) => {
   const fetchFeedback = async () => {
     const response = await fetch(`/feedback? sort=id&_order=desc`);
     const data = await response.json();
+
     setFeedback(data);
     setIsLoading(false);
   };
@@ -34,7 +35,7 @@ export const FeedbackProvider = ({ children }) => {
     });
 
     const data = await response.json();
-    setFeedback([newFeedback, ...feedback]);
+    setFeedback([data, ...feedback]);
   };
 
   // delete feedback
